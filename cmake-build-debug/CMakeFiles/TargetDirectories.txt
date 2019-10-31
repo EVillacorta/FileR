@@ -1,0 +1,3 @@
+C:/Users/esteb/Desktop/Project64/cmake-build-debug/CMakeFiles/Project64.dir
+C:/Users/esteb/Desktop/Project64/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/esteb/Desktop/Project64/cmake-build-debug/CMakeFiles/rebuild_cache.dir
