@@ -162,12 +162,16 @@ void TEXT_F::ShowMenu() {
 
 }
 
-std::vector<std::pair<uint64_t, uint64_t>> TEXT_F::findWord(const std::string &word) {
+std::vector<std::pair<uint64_t, uint64_t>> TEXT_F::findWord(const std::string &word)
+{
     std::vector<std::pair<uint64_t, uint64_t>> positions;
     std::pair<uint64_t, uint64_t> position;
-    for (uint64_t i = 0; i < m_parsedContent.size(); ++i) {
-        for (uint64_t j = 0; j < m_parsedContent[i].size(); ++j) {
-            if (m_parsedContent[i][j] == word) {
+    for (uint64_t i = 0; i < m_parsedContent.size(); ++i)
+    {
+        for (uint64_t j = 0; j < m_parsedContent[i].size(); ++j)
+        {
+            if (m_parsedContent[i][j] == word)
+            {
                 position = {i, j};
                 positions.push_back(position);
             }

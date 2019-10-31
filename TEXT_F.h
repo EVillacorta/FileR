@@ -15,8 +15,8 @@ enum {LEFT = 1, RIGHT = 2, CENTER = 3, JUSTIFIED = 4};
 
 class TEXT_F {
 private:
-    static const int m_SizeOfBlock = 60;
-    static const int m_JAcceptance = 10;
+    static const int m_SizeOfBlock = 80;
+    static const int m_JAcceptance = 40;
 
     std::string m_inputPath;
     std::string m_outputPath;

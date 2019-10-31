@@ -2,7 +2,8 @@
 #include "TEXT_F.h"
 #include "header.h"
 
-int main() {
+int main()
+{
     TEXT_F test;
     test.ShowMenu();
 }
