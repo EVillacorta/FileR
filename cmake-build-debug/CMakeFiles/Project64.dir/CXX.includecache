@@ -9,6 +9,10 @@
 C:/Users/esteb/Desktop/Project64/TEXT_F.cpp
 iostream
 -
+algorithm
+-
+wincrypt.h
+-
 TEXT_F.h
 C:/Users/esteb/Desktop/Project64/TEXT_F.h
 header.h
@@ -22,6 +26,18 @@ fstream
 vector
 -
 sstream
+-
+
+C:/Users/esteb/Desktop/Project64/functions.cpp
+vector
+-
+string
+-
+sstream
+-
+afxres.h
+-
+iostream
 -
 
 C:/Users/esteb/Desktop/Project64/header.h

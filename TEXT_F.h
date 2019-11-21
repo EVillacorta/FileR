@@ -1,7 +1,6 @@
 #ifndef PROJECT64_TEXT_F_H
 #define PROJECT64_TEXT_F_H
 
-
 #include <string>
 #include <fstream>
 #include <vector>
@@ -10,8 +9,36 @@
 template <typename T>
 using Matrix = std::vector<std::vector<T>>;
 using Text = std::vector<std::string>;
+template <typename T>
+using Coordinate = std::pair<T, T>;
 
-enum {LEFT = 1, RIGHT = 2, CENTER = 3, JUSTIFIED = 4};
+enum {
+    LEFT = 1,
+    RIGHT = 2,
+    CENTER = 3,
+    JUSTIFIED = 4};
+
+struct Dictionary {
+    std::vector<std::pair<std::string, std::vector<Coordinate<unsigned int>>>> m_entries;
+
+    void addWord (const std::string& word, Coordinate<unsigned int> occurence) {
+        m_entries.push_back({word, {occurence}});
+    }
+    void entrySet (const std::string& word, Coordinate<unsigned int> occurrence) {
+        unsigned int i = 0;
+        for (auto & pair : m_entries)
+            if (pair.first == word) {
+                bool flag = true;
+                for (auto item : pair.second) {
+                    if (item.first == occurrence.first && item.second == occurrence.second)
+                        flag = false;
+                }
+                if (flag) pair.second.push_back(occurrence);
+                return;
+            }
+        addWord(word, occurrence);
+    }
+};
 
 class TEXT_F {
 private:
@@ -27,6 +54,8 @@ private:
     Text m_fileContent;
     Matrix <std::string> m_parsedContent;
 
+    Dictionary m_dict;
+
 public:
 
     TEXT_F();
@@ -37,15 +66,21 @@ public:
     void setOutputFile(const std::string& outputPath);
 
     void readFile ();
-    Text getContent ();
+    void fillDictionary();
     void showContent ();
+    void showHighlights(std::vector<std::pair<unsigned int, unsigned int>>);
     void fixContent (size_t SizeofBlock = m_SizeOfBlock, int fixType = LEFT);
     void saveContent ();
+    void encryptContent ();
+    void decryptContent ();
+
+    std::vector<Coordinate<unsigned int>> getOccurrences (const std::string& word);
 
     void ShowMenu ();
 
-    std::vector<std::pair<uint64_t, uint64_t>> findWord (const std::string & word);
+    //std::vector<std::pair<uint64_t, uint64_t>> findWord (const std::string & word);
 };
+
 
 
 #endif //PROJECT64_TEXT_F_H

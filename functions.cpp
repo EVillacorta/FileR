@@ -2,6 +2,15 @@
 #include <string>
 #include <sstream>
 
+#include <afxres.h>
+#include <iostream>
+
+char *setColor(int color, char *Message)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+    return Message;
+}
+
 template <typename T>
 using Matrix = std::vector<std::vector<T>>;
 using Text = std::vector<std::string>;

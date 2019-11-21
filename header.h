@@ -18,5 +18,9 @@ Text buildTextRight(const Matrix <std::string> & parsedText, size_t blockSize);
 Text buildTextCenter(const Matrix <std::string> & parsedText, size_t blockSize);
 Text buildTextJustified (const Matrix <std::string> & parsedText, size_t blockSize, size_t acceptance);
 
+char* setColor(int color=7, char* Message = (char*)"");
+
+template <typename T>
+bool inVect (T item, std::vector<T> vec);
 
 #endif //PROJECT64_HEADER_H
